@@ -7,7 +7,9 @@
       <v-text-field
         outlined
         single-line
+        dense
         class="form_input"
+        :append-icon="emailErrors.length >= 1 ? 'mdi-alert-circle-outline' : ''"
         v-model="email"
         :error-messages="emailErrors"
         label="E-mail"
@@ -19,6 +21,8 @@
       <v-text-field
         outlined
         single-line
+        dense
+        :append-icon="(password.length < 8) ? 'mdi-alert-circle-outline' : ''"
         v-model="password"
         :rules="[rules.required, rules.min]"
         :type="show1 ? 'text' : 'password'"
@@ -28,25 +32,25 @@
         @click:append="show1 = !show1"
       ></v-text-field>
       <div class="form_chache">
-        <v-checkbox
-          v-model="checkbox"
-          :error-messages="checkboxErrors"
-          label="Remember me"
-          required
-          @change="$v.checkbox.$touch()"
-          @blur="$v.checkbox.$touch()"
-        ></v-checkbox>
+        <div class="form_checkbox">
+          <v-checkbox
+            v-model="checkbox"
+            :error-messages="checkboxErrors"
+            required
+            @change="$v.checkbox.$touch()"
+            @blur="$v.checkbox.$touch()"
+          ></v-checkbox>
+          <label class="checkbox_label" for="checkbox">Remember me</label>
+        </div>
         <span>Forgot password</span>
       </div>
-      <!-- <v-btn
+      <v-btn
         class="mr-4 primary white--text"
         elevation="0"
         @click="submit"
         block
-      >
-        Submit
-      </v-btn> -->
-      <base-button @click="submit">Sign in</base-button>
+        style="text-transform: none;"
+      >Sign in </v-btn>
       <p class="form_help">
         Can’t log in to your account? <span>Ask support</span>
       </p>
@@ -56,7 +60,6 @@
 
 <script>
 import logo from "../assets/icons/logo.svg";
-import BaseButton from './ui/BaseButton.vue'
 import { validationMixin } from "vuelidate";
 import { required, email } from "vuelidate/lib/validators";
 
@@ -92,7 +95,8 @@ export default {
     checkboxErrors() {
       const errors = [];
       if (!this.$v.checkbox.$dirty) return errors;
-      !this.$v.checkbox.checked && errors.push("You must agree to continue!");
+      !this.$v.checkbox.checked && errors.push("Agree to continue");
+      console.log(errors)
       return errors;
     },
     emailErrors() {
@@ -117,9 +121,6 @@ export default {
     },
   },
   emits: ["submit"],
-  components: {
-    BaseButton
-  }
 };
 </script>
 
@@ -130,7 +131,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
 
   &_title {
     padding: 0;
@@ -157,6 +158,7 @@ export default {
 
 form {
   width: 100%;
+  position: relative;
 }
 
 span {
@@ -167,11 +169,22 @@ span {
 }
 
 body .v-application .error--text {
-  //color: #475467 !important;
   caret-color: #475467 !important;
 }
 
 label {
   font-size: 14px;
+  font-weight: 500;
+}
+
+.checkbox_label {
+  position: absolute;
+  left: 28px;
+  bottom: 128px;
+  font-weight: 500;
+}
+
+body .v-application .v-input__slot {
+  min-height: 48px !important;
 }
 </style>
