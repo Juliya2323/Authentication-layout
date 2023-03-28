@@ -22,7 +22,7 @@
         outlined
         single-line
         dense
-        :append-icon="(password.length < 8) ? 'mdi-alert-circle-outline' : ''"
+        :append-icon="password.length < 8 ? 'mdi-alert-circle-outline' : ''"
         v-model="password"
         :rules="[rules.required, rules.min]"
         :type="show1 ? 'text' : 'password'"
@@ -49,8 +49,9 @@
         elevation="0"
         @click="submit"
         block
-        style="text-transform: none;"
-      >Sign in </v-btn>
+        style="text-transform: none"
+        >Sign in
+      </v-btn>
       <p class="form_help">
         Can’t log in to your account? <span>Ask support</span>
       </p>
@@ -96,7 +97,7 @@ export default {
       const errors = [];
       if (!this.$v.checkbox.$dirty) return errors;
       !this.$v.checkbox.checked && errors.push("Agree to continue");
-      console.log(errors)
+      console.log(errors);
       return errors;
     },
     emailErrors() {
