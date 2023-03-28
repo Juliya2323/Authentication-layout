@@ -4,7 +4,7 @@
     <v-card-title class="form_title">Log in to your account</v-card-title>
     <form>
       <label for="email">Email</label>
-      <v-text-field 
+      <v-text-field
         outlined
         single-line
         class="form_input"
@@ -16,7 +16,7 @@
         @blur="$v.email.$touch()"
       ></v-text-field>
       <label for="password">Password</label>
-      <v-text-field 
+      <v-text-field
         outlined
         single-line
         v-model="password"
@@ -38,14 +38,15 @@
         ></v-checkbox>
         <span>Forgot password</span>
       </div>
-      <v-btn
+      <!-- <v-btn
         class="mr-4 primary white--text"
         elevation="0"
         @click="submit"
         block
       >
         Submit
-      </v-btn>
+      </v-btn> -->
+      <base-button @click="submit">Sign in</base-button>
       <p class="form_help">
         Can’t log in to your account? <span>Ask support</span>
       </p>
@@ -55,6 +56,7 @@
 
 <script>
 import logo from "../assets/icons/logo.svg";
+import BaseButton from './ui/BaseButton.vue'
 import { validationMixin } from "vuelidate";
 import { required, email } from "vuelidate/lib/validators";
 
@@ -112,9 +114,12 @@ export default {
       }
       this.$emit("submit", this.formData);
       console.log("submitted!");
-    }
+    },
   },
   emits: ["submit"],
+  components: {
+    BaseButton
+  }
 };
 </script>
 
@@ -162,9 +167,11 @@ span {
 }
 
 body .v-application .error--text {
-  color: #475467 !important;
+  //color: #475467 !important;
   caret-color: #475467 !important;
 }
 
-
+label {
+  font-size: 14px;
+}
 </style>
