@@ -133,6 +133,10 @@ export default {
   align-items: center;
   gap: 20px;
 
+  @media screen and (max-width: 400px) {
+    width: 320px;
+  }
+
   &_title {
     padding: 0;
     font-size: 30px;
