@@ -1,18 +1,19 @@
 <template>
   <div class="form">
-    <v-img :src="logo" width="48px" height="36px"></v-img>
+    <v-img :src="logo" width="48" height="36"></v-img>
     <v-card-title class="form_title">Log in to your account</v-card-title>
     <form>
       <label for="email">Email</label>
       <v-text-field
         outlined
         single-line
+        height="44"
         dense
         class="form_input"
         :append-icon="emailErrors.length >= 1 ? 'mdi-alert-circle-outline' : ''"
         v-model="email"
         :error-messages="emailErrors"
-        label="E-mail"
+        
         required
         @input="$v.email.$touch()"
         @blur="$v.email.$touch()"
@@ -21,13 +22,14 @@
       <v-text-field
         outlined
         single-line
+        height="44"
         dense
         :append-icon="password.length < 8 ? 'mdi-alert-circle-outline' : ''"
         v-model="password"
         :rules="[rules.required, rules.min]"
         :type="show1 ? 'text' : 'password'"
         name="input-10-1"
-        label="Password"
+        
         hint="At least 8 characters"
         @click:append="show1 = !show1"
       ></v-text-field>
@@ -47,6 +49,7 @@
       <v-btn
         class="mr-4 primary white--text"
         elevation="0"
+        height="44"
         @click="submit"
         block
         style="text-transform: none"
@@ -189,7 +192,4 @@ label {
   font-weight: 500;
 }
 
-body .v-application .v-input__slot {
-  min-height: 48px !important;
-}
 </style>
