@@ -1,12 +1,12 @@
 <template>
   <v-container fluid pa-0 ma-0 class="wrapper">
     <v-row class="mb-12">
-      <v-col cols="6" class="form_wrapper">
+      <v-col xs-12 md-6 lg-6 xl-6 class="form_wrapper">
         <v-sheet>
           <the-form></the-form>
         </v-sheet>
       </v-col>
-      <v-col cols="6">
+      <v-col cols="6" class="hidden-sm-and-down">
         <v-sheet>
           <v-img cover :src="bgImage" class="background"></v-img>
         </v-sheet>
