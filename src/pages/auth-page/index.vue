@@ -1,13 +1,9 @@
 <template>
   <v-container fluid pa-0 ma-0 class="wrapper">
     <v-row class="mb-12">
-      <v-col cols="6">
+      <v-col cols="6" class="form_wrapper">
         <v-sheet>
-          <v-row class="mb-12" justify="center">
-            <v-col cols="6">
-              <the-form></the-form>
-            </v-col>
-          </v-row>
+          <the-form></the-form>
         </v-sheet>
       </v-col>
       <v-col cols="6">
@@ -41,5 +37,14 @@ export default {
 }
 .background {
   height: 100vh;
+}
+
+.form_wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 </style>

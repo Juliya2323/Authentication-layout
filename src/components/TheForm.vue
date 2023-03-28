@@ -30,7 +30,7 @@
           @change="$v.checkbox.$touch()"
           @blur="$v.checkbox.$touch()"
         ></v-checkbox>
-        <v-btn class="mr-4" @click="submit" block> submit </v-btn>
+        <v-btn class="mr-4 primary  white--text" elevation="0" @click="submit" block flat> submit </v-btn>
       </form>
     </template>
   </div>
@@ -100,3 +100,18 @@ export default {
   emits: ["submit"],
 };
 </script>
+
+<style scoped>
+.form {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+form {
+  width: 100%;
+}
+</style>
