@@ -5,13 +5,13 @@
 </template>
 
 <script>
-import AuthPage from './pages/auth-page/index.vue'
+import AuthPage from "./pages/auth-page/index.vue";
 
 export default {
-  name: 'App',
+  name: "App",
 
   components: {
-    'auth-page': AuthPage
+    "auth-page": AuthPage,
   },
 
   data: () => ({
@@ -20,6 +20,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

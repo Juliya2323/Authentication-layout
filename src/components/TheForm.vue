@@ -2,7 +2,6 @@
   <div class="form">
     <v-img :src="logo" width="48px" height="36px"></v-img>
     <v-card-title>Log in to your account</v-card-title>
-    <template>
       <form>
         <v-text-field
           v-model="email"
@@ -19,7 +18,7 @@
           name="input-10-1"
           label="Password"
           hint="At least 8 characters"
-          counter
+          
           @click:append="show1 = !show1"
         ></v-text-field>
         <v-checkbox
@@ -30,9 +29,8 @@
           @change="$v.checkbox.$touch()"
           @blur="$v.checkbox.$touch()"
         ></v-checkbox>
-        <v-btn class="mr-4 primary  white--text" elevation="0" @click="submit" block flat> submit </v-btn>
+        <v-btn class="mr-4 primary  white--text" elevation="0" @click="submit" block> submit </v-btn>
       </form>
-    </template>
   </div>
 </template>
 
