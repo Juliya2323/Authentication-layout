@@ -246,12 +246,21 @@ span {
 }
 
 .mdi-checkbox-blank-outline::before {
-    content: url("../assets/icons/ckeckbox-default.svg");
+  content: url("../assets/icons/ckeckbox-default.svg");
 }
 
 .v-application .error--text {
   .mdi-checkbox-blank-outline::before {
     content: url("../assets/icons/ckeckbox-error.svg");
+  }
 }
+
+.theme--light.v-text-field--outlined:not(.v-input--is-focused):not(
+    .v-input--has-state
+  )
+  > .v-input__control
+  > .v-input__slot
+  fieldset {
+  color: #d0d5dd;
 }
 </style>
