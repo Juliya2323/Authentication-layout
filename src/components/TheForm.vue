@@ -147,7 +147,7 @@ export default {
     font-size: 30px;
     font-weight: 600;
     color: #101828;
-    margin-bottom: 6px;
+    margin-bottom: 12px;
   }
 
   &_chache {
