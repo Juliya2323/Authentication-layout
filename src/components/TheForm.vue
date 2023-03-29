@@ -154,6 +154,8 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 28px;
+    margin-bottom: 24px;
   }
 
   &_help {
@@ -174,6 +176,34 @@ export default {
   &_checkbox {
     position: relative;
   }
+
+  &_input {
+    font-family: "Inter";
+    position: relative;
+
+    & .v-input__slot {
+      border-radius: 8px;
+    }
+
+    & .v-text-field__details {
+      display: block;
+      margin-top: 6px;
+    }
+
+    & .v-messages__message {
+      position: absolute;
+      left: -12px;
+      bottom: 2px;
+    }
+
+    & .mdi-alert-circle-outline::before {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      top: -9px;
+      right: -4px;
+    }
+  }
 }
 
 form {
@@ -191,9 +221,37 @@ span {
 .checkbox_label {
   position: absolute;
   width: 100px;
-  bottom: 24px;
+  bottom: 22px;
   left: 30px;
   font-size: 14px;
   font-weight: 500;
+}
+
+.v-text-field--outlined.v-input--has-state fieldset {
+  border: 1px solid #f04438;
+  display: inline-block;
+}
+
+.v-text-field--outlined.v-input--is-focused fieldset {
+  border: 1px solid #7f56d9;
+  display: block;
+}
+
+.v-application .primary--text {
+  color: #f9f5ff;
+}
+
+.mdi-checkbox-marked::before {
+  content: url("../assets/icons/checkbox.svg");
+}
+
+.mdi-checkbox-blank-outline::before {
+    content: url("../assets/icons/ckeckbox-default.svg");
+}
+
+.v-application .error--text {
+  .mdi-checkbox-blank-outline::before {
+    content: url("../assets/icons/ckeckbox-error.svg");
+}
 }
 </style>
