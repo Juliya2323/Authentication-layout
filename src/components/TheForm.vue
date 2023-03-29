@@ -5,21 +5,21 @@
     <form>
       <label for="email" class="form_label">Email</label>
       <v-text-field
+        class="form_input"
         outlined
         single-line
         height="44"
         dense
-        class="form_input"
         :append-icon="emailErrors.length >= 1 ? 'mdi-alert-circle-outline' : ''"
         v-model="email"
         :error-messages="emailErrors"
-        
         required
         @input="$v.email.$touch()"
         @blur="$v.email.$touch()"
       ></v-text-field>
-      <label for="password">Password</label>
+      <label for="password" class="form_label">Password</label>
       <v-text-field
+        class="form_input"
         outlined
         single-line
         height="44"
@@ -29,7 +29,6 @@
         :rules="[rules.required, rules.min]"
         :type="show1 ? 'text' : 'password'"
         name="input-10-1"
-        
         hint="At least 8 characters"
         @click:append="show1 = !show1"
       ></v-text-field>
@@ -37,6 +36,7 @@
         <div class="form_checkbox">
           <v-checkbox
             v-model="checkbox"
+            class="form_checkbox"
             :error-messages="checkboxErrors"
             required
             @change="$v.checkbox.$touch()"
@@ -128,7 +128,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .form {
   width: 360px;
   display: flex;
@@ -136,6 +136,7 @@ export default {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  font-family: "Inter";
 
   @media screen and (max-width: 400px) {
     width: 320px;
@@ -162,6 +163,17 @@ export default {
     font-size: 14px;
     font-weight: 400;
   }
+
+  &_label {
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  &_checkbox {
+    position: relative;
+  }
 }
 
 form {
@@ -176,21 +188,12 @@ span {
   cursor: pointer;
 }
 
-body .v-application .error--text {
-  caret-color: #475467 !important;
-}
-
-.form_label {
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 7px;
-}
-
 .checkbox_label {
   position: absolute;
-  left: 28px;
-  bottom: 134px;
+  width: 100px;
+  bottom: 24px;
+  left: 30px;
+  font-size: 14px;
   font-weight: 500;
 }
-
 </style>
