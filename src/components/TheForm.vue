@@ -47,7 +47,7 @@
         <span>Forgot password</span>
       </div>
       <v-btn
-        class="mr-4 primary white--text"
+        class="mr-4 primary white--text form_button"
         elevation="0"
         height="44"
         @click="submit"
@@ -148,6 +148,10 @@ export default {
     font-weight: 600;
     color: #101828;
     margin-bottom: 12px;
+
+    @media screen and (max-width: 400px) {
+      font-size: 24px;
+    }
   }
 
   &_chache {
@@ -203,6 +207,10 @@ export default {
       top: -9px;
       right: -4px;
     }
+  }
+
+  &_button {
+    border-radius: 8px;
   }
 }
 
