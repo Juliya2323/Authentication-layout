@@ -3,7 +3,7 @@
     <v-img :src="logo" width="48" height="36"></v-img>
     <v-card-title class="form_title">Log in to your account</v-card-title>
     <form>
-      <label for="email">Email</label>
+      <label for="email" class="form_label">Email</label>
       <v-text-field
         outlined
         single-line
@@ -180,15 +180,16 @@ body .v-application .error--text {
   caret-color: #475467 !important;
 }
 
-label {
+.form_label {
   font-size: 14px;
   font-weight: 500;
+  margin-bottom: 7px;
 }
 
 .checkbox_label {
   position: absolute;
   left: 28px;
-  bottom: 128px;
+  bottom: 134px;
   font-weight: 500;
 }
 
